@@ -65,7 +65,3 @@ curl http://localhost:8000/api/jobs/{job_id}
 - Redis + rq (Redis Queue)
 - SQLAlchemy 2.0 + SQLite
 - Pydantic v2
-
-## License
-
-MIT
