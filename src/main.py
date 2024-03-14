@@ -9,7 +9,7 @@ from .database import get_db, init_db
 from .models import Job
 from .schemas import JobCreate, JobListResponse, JobResponse, MessageResponse
 
-VALID_JOB_TYPES = {"image_resize", "send_email", "generate_report"}
+VALID_JOB_TYPES = {"image_resize", "send_email", "generate_report", "data_export"}
 
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
 
