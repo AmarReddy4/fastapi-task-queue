@@ -78,6 +78,27 @@ def send_email(job_id: str, payload: dict) -> dict:
     return result
 
 
+def data_export(job_id: str, payload: dict) -> dict:
+    """Simulate data export."""
+    logger.info(f"Starting data export for job {job_id}")
+    _update_job_status(job_id, "processing")
+
+    table = payload.get("table", "users")
+    format_type = payload.get("format", "csv")
+
+    time.sleep(random.uniform(2, 6))
+
+    result = {
+        "table": table,
+        "format": format_type,
+        "rows": random.randint(100, 10000),
+        "download_url": f"https://cdn.example.com/exports/{job_id}.{format_type}",
+    }
+
+    logger.info(f"Data export completed for job {job_id}")
+    return result
+
+
 def generate_report(job_id: str, payload: dict) -> dict:
     """Simulate report generation."""
     logger.info(f"Starting report generation for job {job_id}")
@@ -105,6 +126,7 @@ TASK_HANDLERS = {
     "image_resize": image_resize,
     "send_email": send_email,
     "generate_report": generate_report,
+    "data_export": data_export,
 }
 
 
