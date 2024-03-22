@@ -22,7 +22,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
-QUEUES = ["default"]
+QUEUES = os.getenv("WORKER_QUEUES", "default").split(",")
 
 
 def run_worker():
